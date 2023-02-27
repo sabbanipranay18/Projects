@@ -1,0 +1,20 @@
+import math, random
+
+digits = "0123456789"
+OTP = ""
+
+for i in range(4):
+    OTP = OTP + digits[math.floor(random.random()*10)]
+print(OTP)
+
+while True:
+    user_input = input("Enter OTP : ")
+    if len(user_input) !=4:
+        print("Please enter 4 digit OTP!!!")
+        continue
+    elif user_input != OTP:
+        print("Incorrect OTP")
+        continue
+    elif user_input == OTP:
+        print("OTP Verified :)")
+    break
