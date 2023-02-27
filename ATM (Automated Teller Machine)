@@ -1,0 +1,61 @@
+print("Welcome to ATM...")
+balance = 10000
+pin_gen = int(input("Enter PIN to generate:"))
+pin_store = []
+pin_store.append(pin_gen)
+
+while True:
+    pin_user = int(input("Enter Your PIN: "))
+    if pin_user != pin_gen:
+        print("Your PIN is Incorrect!")
+        continue
+    
+    elif pin_user == pin_gen:
+        print("Select one Option")
+        print("""
+        1. Balance Enquiry
+        2. Withdrw
+        3. Deposit
+        4. Quit
+        """)
+    break
+    
+while True:
+    options = int(input("Select one option from above : "))
+    if options == 1:
+        print("Your Bank Balance = " ,balance)
+        
+    elif options == 2:
+        wit_amount = int(input("Enter amount to Withdraw : "))
+        pin_user = int(input("Enter Your PIN: "))
+        if pin_user != pin_gen:
+            print("Your PIN is Incorrect!")
+            continue
+        elif pin_user == pin_gen:
+            if wit_amount > balance:
+                print("Insufficient Funds!!!")
+                
+            elif wit_amount < balance:
+                remain_bal_w = balance - wit_amount
+                balance = remain_bal_w
+                print("Transaction Completed!")
+            
+    elif options == 3:
+        dep_amount = int(input("Enter amount to Deposit : "))
+        if dep_amount <= 100:
+            print("Amount should greater than Rs.100!!!")
+            continue
+        elif dep_amount > 100:
+            remain_bal_d = balance + dep_amount
+            balance = remain_bal_d
+            print("Transaction Completed!")
+            print(dep_amount, """deposited in your account
+            Total balance = """, balance)
+            
+    elif options == 4:
+        print("Thank You Visit Again!!! \n")
+        break
+        
+    
+print("Your Remaining balance = ", balance)
+
