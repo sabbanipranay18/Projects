@@ -1,0 +1,12 @@
+import pytube
+from pytube import YouTube
+
+url = input("Enter Youtube Link: ")
+yt = YouTube(url)
+path = "D:\Jupyter Python for Data Science and Machine Learning\Youtube Videos"
+
+stream = yt.streams.get_by_itag(22)
+print("Downloading...")
+download = stream.download(path)
+print("Downloaded")
+print("Downloaded to " + path)
